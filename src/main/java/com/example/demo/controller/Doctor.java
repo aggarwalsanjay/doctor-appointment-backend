@@ -16,7 +16,7 @@ public class Doctor {
     DoctorService doctorService;
 
     @PostMapping("/registerDoctor")
-    public ResponseEntity<Object> doctor(@RequestBody DoctorsParams doctorsParams) {
+    public ResponseEntity<Object> doctor(@RequestBody DoctorsParams doctorsParams){
         return doctorService.doctor(doctorsParams);
     }
 

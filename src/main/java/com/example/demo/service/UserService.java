@@ -21,7 +21,7 @@ public class UserService {
     @Autowired
     RoleRepository roleRepository;
 
-    public ResponseEntity<Object> register(RegisterParams params) throws ErrorMessage {
+    public ResponseEntity<Object> register(RegisterParams params)  {
         try {
             roleRepository.save(new RoleTable(params.getEmail(), "user"));
             UserTable user = userRepository.save(new UserTable(params.getEmail(), params.getName(),
@@ -39,7 +39,8 @@ public class UserService {
             return new ResponseEntity<>(new LoginResponse(user, "user"), HttpStatus.OK);
 
         } catch (Exception e) {
-            throw new ErrorMessage(e.getLocalizedMessage(),HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(new ErrorMessage(e.getLocalizedMessage()), HttpStatus.UNAUTHORIZED);
+
         }
     }
 

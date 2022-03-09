@@ -2,13 +2,15 @@ package com.example.demo.reponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 @AllArgsConstructor
 @Getter
 @Setter
-public class ErrorMessage extends Exception {
+@NoArgsConstructor
+public class ErrorMessage  {
     String errorMessage;
     HttpStatus code;
 

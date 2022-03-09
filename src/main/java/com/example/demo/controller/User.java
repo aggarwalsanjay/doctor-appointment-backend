@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.params.GetUserByEmailParams;
 import com.example.demo.params.RegisterParams;
-import com.example.demo.reponse.ErrorMessage;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +17,7 @@ public class User {
 
 
     @PostMapping("/registerUser")
-    public ResponseEntity<Object> register(@RequestBody RegisterParams registerParams) throws ErrorMessage {
+    public ResponseEntity<Object> register(@RequestBody RegisterParams registerParams) {
         return userService.register(registerParams);
     }
 

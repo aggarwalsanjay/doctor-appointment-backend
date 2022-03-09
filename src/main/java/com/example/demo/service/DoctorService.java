@@ -25,7 +25,7 @@ public class DoctorService {
     @Autowired
     RoleRepository roleRepository;
 
-    public ResponseEntity<Object> doctor(DoctorsParams params) {
+    public ResponseEntity<Object> doctor(DoctorsParams params){
         try {
             roleRepository.save(new RoleTable(params.getEmail(), "doctor"));
             DoctorTable doctor = doctorRepository.save(new DoctorTable(params.getName(), params.getAddress(), params.getDegree(), params.getEmail(), params.getPassword()));
